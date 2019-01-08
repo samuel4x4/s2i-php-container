@@ -78,5 +78,29 @@ RUN /usr/libexec/container-setup && rpm-file-permissions
 
 USER 1001
 
+
+
+
+
+USER root
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
+RUN yum update
+RUN rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/python-backports-1.0-8.el7.x86_64.rpm
+RUN rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/python-ipaddress-1.0.16-2.el7.noarch.rpm
+RUN rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/python-backports-ssl_match_hostname-3.5.0.1-1.el7.noarch.rpm
+RUN rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/python-setuptools-0.9.8-7.el7.noarch.rpm
+RUN yum install supervisor -y
+RUN rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/libzip-0.10.1-8.el7.x86_64.rpm
+RUN rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/tcl-8.5.13-8.el7.x86_64.rpm
+RUN yum --enablerepo=remi install php71-php-pecl-redis -y
+RUN yum --enablerepo=remi-test install php71-php-pecl-redis
+RUN bash -c "echo extension=/opt/remi/php71/root/lib64/php/modules/igbinary.so > /etc/opt/rh/rh-php71/php.d/20-igbinary.ini"
+RUN bash -c "echo extension=/opt/remi/php71/root/lib64/php/modules/redis.so > /etc/opt/rh/rh-php71/php.d/20-redis.ini"
+
+
+USER 1001
+
+
 # Set the default CMD to print the usage of the language image
 CMD $STI_SCRIPTS_PATH/usage
