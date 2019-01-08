@@ -3,6 +3,9 @@ FROM centos/s2i-base-centos7
 # This image provides an Apache+PHP environment for running PHP
 # applications.
 
+ENV http_proxy http://10.236.240.71:3128/
+ENV https_proxy http://10.236.240.71:3128/
+
 EXPOSE 8080
 EXPOSE 8443
 
