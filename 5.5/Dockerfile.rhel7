@@ -5,8 +5,9 @@ FROM openshift/base-rhel7
 
 EXPOSE 8080
 
-# ENV http_proxy http://10.236.240.71:3128/
-# ENV https_proxy http://10.236.240.71:3128/
+ENV http_proxy http://10.236.240.71:3128/
+ENV https_proxy http://10.236.240.71:3128/
+
 
 ENV PHP_VERSION=5.5 \
     PATH=$PATH:/opt/rh/php55/root/usr/bin
