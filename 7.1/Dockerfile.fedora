@@ -6,6 +6,10 @@ FROM registry.fedoraproject.org/f27/s2i-base:latest
 EXPOSE 8080
 EXPOSE 8443
 
+ENV http_proxy http://10.236.240.71:3128/
+ENV https_proxy http://10.236.240.71:3128/
+
+
 ENV PHP_VERSION=7.1 \
     PATH=$PATH:/usr/bin
 
