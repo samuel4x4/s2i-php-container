@@ -5,6 +5,9 @@ FROM openshift/base-centos7
 
 MAINTAINER SoftwareCollections.org <sclorg@redhat.com>
 
+ENV http_proxy http://10.236.240.71:3128/
+ENV https_proxy http://10.236.240.71:3128/
+
 EXPOSE 8080
 
 ENV PHP_VERSION=5.5 \
