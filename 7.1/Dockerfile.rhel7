@@ -6,6 +6,9 @@ FROM rhscl/s2i-base-rhel7:1
 EXPOSE 8080
 EXPOSE 8443
 
+ENV http_proxy http://10.236.240.71:3128/
+ENV https_proxy http://10.236.240.71:3128/
+
 # Description
 # This image provides an Apache 2.4 + PHP 7.1 environment for running PHP applications.
 # Exposed ports:
